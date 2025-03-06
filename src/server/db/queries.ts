@@ -4,6 +4,7 @@ import { db } from "~/server/db";
 import {
   files_table as filesSchema,
   folders_table as foldersSchema,
+  type DB_FileType
 } from "~/server/db/schema";
 import { eq } from "drizzle-orm";
 
@@ -37,4 +38,21 @@ export const Query = {
     }
     return parents;
   },
-} ;
+};
+
+export const Mutation = {
+  createFile: async function (input: {
+    file: {
+      name: string;
+      size: number;
+      url: string;
+      parent: number;
+    };
+    userId: string;
+  }) {
+    return await db.insert(filesSchema).values({
+      ...input.file,
+      parent: input.file.parent,
+    });
+  },
+};
