@@ -6,8 +6,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { PostHogProvider } from "./_providers/posthog-provider";
 
 export const metadata: Metadata = {
-  title: "VoidSync",
-  description: "It's like Google Drive, but much less featured",
+  title: "SyncVoid",
+  description: "It's like Google Drive, but worse!!",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
